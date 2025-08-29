@@ -3,6 +3,7 @@ import lib.d.fiber_function;
 import lib.d.fiber_block;
 import lib.d.fiber_counter;
 import lib.d.fiber_value;
+import std.stdio;
 
 void main()
 {
