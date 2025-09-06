@@ -34,6 +34,8 @@ export default class FiberFunction {
         if (!this.isSection) {
             code += `fn ${this.name} (`;
             for (let i = 0; i < this.params.length; i++) {
+                code += this.params[i].type;
+                code += " ";
                 code += this.params[i].value;
                 if (!((i + 1) >= this.params.length)) {
                     code += ", ";
