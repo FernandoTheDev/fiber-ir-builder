@@ -55,20 +55,20 @@ import std.stdio;
 
 void main()
 { 
-auto mod = new FiberModule("programa.fir"); 
-auto fn = new FiberFunction("main", Type.Void, [], true); 
-auto block = new FiberBlock(new FiberTempCounter()); 
-
-auto x = block.varTmp(Type.Int, "60"); 
-auto y = block.varTmp(Type.Int, "9"); 
-auto result = block.add(Type.Int, x, y); 
-block.print(result); 
-block.halt(); // End the program 
-
-fn.setBlock(block); 
-mod.addFunc(fn); 
-
-writeln(mod.gen()); // Generate Fir code
+    auto mod = new FiberModule("programa.fir"); 
+    auto fn = new FiberFunction("main", Type.Void, [], true); 
+    auto block = new FiberBlock(new FiberTempCounter()); 
+    
+    auto x = block.varTmp(Type.Int, "60"); 
+    auto y = block.varTmp(Type.Int, "9"); 
+    auto result = block.add(Type.Int, x, y); 
+    block.print(result); 
+    block.halt(); // End the program 
+    
+    fn.setBlock(block); 
+    mod.addFunc(fn); 
+    
+    writeln(mod.gen()); // Generate Fir code
 }
 ```
 
@@ -103,12 +103,12 @@ console.log(mod.gen()); // Generate Fir code
 
 ```llvm
 .main { 
-$0: int = 60 
-$1: int = 9 
-$2: int; 
-add $2, $0, $1
-print $2
-halt
+    $0: int = 60 
+    $1: int = 9 
+    $2: int; 
+    add $2, $0, $1
+    print $2
+    halt
 }
 ```
 
